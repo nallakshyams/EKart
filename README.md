@@ -11,6 +11,6 @@ Steps to run:
 
 4. Install Dependencies using the command 'npm install'
 
-5. Start the Project using the command 'expo start'
+5. Start the Project using the command 'npx expo -c'
 
 6. install 'Expo Go' app in your android or iOS device and scan the QA code that you would receive in step 5
