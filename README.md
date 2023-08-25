@@ -23,11 +23,11 @@
 
 #### 2. Products list
 
-    <img src="https://github.com/nallakshyams/EKart/assets/24761241/71d1b556-286d-4787-98b5-4ed52756c9a0" alt="product list" width="300">
+   <img src="https://github.com/nallakshyams/EKart/assets/24761241/71d1b556-286d-4787-98b5-4ed52756c9a0" alt="product list" width="300">
 
 #### 3. Product details
 
-    <img src="https://github.com/nallakshyams/EKart/assets/24761241/7979ffd1-1c27-4936-acc2-c73ea7d1b112" alt="product details" width="300">
+   <img src="https://github.com/nallakshyams/EKart/assets/24761241/7979ffd1-1c27-4936-acc2-c73ea7d1b112" alt="product details" width="300">
 
 #### 4. Cart1
 
