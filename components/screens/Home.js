@@ -5,7 +5,7 @@ import { COLOURS, Items } from "../data/data";
 import Entypo from "react-native-vector-icons/Entypo";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
+import auth from "../firebase/myfirebase";
 const headerText = `Electronic Shoppe`;
 const subHeaderText = `Electronic shop in Hyderabad. 
 This shop offers both laptops and mobiles`;
@@ -176,6 +176,30 @@ const Home = ({ navigation }) => {
       </View>
     );
   };
+  const signOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.navigate("Login");
+      })
+      .catch((error) => {
+        console.log("signOut err", error.message);
+        switch (error.code) {
+          case "auth/user-not-found":
+            alert("user-not-found");
+            break;
+          case "auth/network-request-failed":
+            alert("network-request-failed");
+            break;
+          case "auth/too-many-requests":
+            alert("too-many-requests");
+            break;
+          default:
+            alert("Something went wrong!! Please try again!!");
+            break;
+        }
+      });
+  };
   return (
     <View
       style={{ width: "100%", height: "100%", backgroundColor: COLOURS.white }}
@@ -196,9 +220,9 @@ const Home = ({ navigation }) => {
             padding: 16,
           }}
         >
-          <Pressable>
-            <Entypo
-              name="shopping-bag"
+          <Pressable onPress={signOut}>
+            <MaterialCommunityIcons
+              name="exit-to-app"
               style={{
                 fontSize: 18,
                 padding: 12,
