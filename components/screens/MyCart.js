@@ -7,14 +7,16 @@ import {
   ToastAndroid,
 } from "react-native";
 import React, { useState, useEffect } from "react";
-import { COLOURS, Items } from "../data/data";
+import { COLOURS } from "../data/data";
 import { StatusBar } from "expo-status-bar";
 import Entypo from "react-native-vector-icons/Entypo";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useProductContext } from "../data/products";
 const MyCart = ({ navigation }) => {
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState();
+  const { productList } = useProductContext();
   useEffect(() => {
     const unsubscribe = navigation.addListener("focus", () => {
       getDataFromDB();
@@ -25,8 +27,8 @@ const MyCart = ({ navigation }) => {
     const cartItems = JSON.parse(items);
     const prods = [];
     if (cartItems) {
-      for (let index = 0; index < Items.length; index++) {
-        const element = Items[index];
+      for (let index = 0; index < productList.length; index++) {
+        const element = productList[index];
         if (cartItems.includes(element.id)) {
           prods.push(element);
         }
@@ -95,7 +97,7 @@ const MyCart = ({ navigation }) => {
           }}
         >
           <Image
-            source={prod.productImage}
+            src={prod.productImage}
             style={{ width: "100%", height: "100%", resizeMode: "contain" }}
           ></Image>
         </View>

@@ -1,11 +1,11 @@
 import { View, Text, ScrollView, Pressable, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { COLOURS, Items } from "../data/data";
-import Entypo from "react-native-vector-icons/Entypo";
+import { COLOURS } from "../data/data";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import auth from "../firebase/myfirebase";
+import { useProductContext } from "../data/products";
 const headerText = `Electronic Shoppe`;
 const subHeaderText = `Electronic shop in Hyderabad. 
 This shop offers both laptops and mobiles`;
@@ -13,6 +13,7 @@ This shop offers both laptops and mobiles`;
 const Home = ({ navigation }) => {
   const [laptops, setLaptops] = useState([]);
   const [mobiles, setMobiles] = useState([]);
+  const { productList } = useProductContext();
   useEffect(() => {
     const unregister = navigation.addListener("focus", () => {
       getData();
@@ -22,8 +23,8 @@ const Home = ({ navigation }) => {
   const getData = () => {
     const laps = [];
     const mobs = [];
-    for (let index = 0; index < Items.length; index++) {
-      const element = Items[index];
+    for (let index = 0; index < productList.length; index++) {
+      const element = productList[index];
       if (element.category === "laptop") {
         laps.push(element);
       } else {
@@ -80,7 +81,7 @@ const Home = ({ navigation }) => {
             </View>
           )}
           <Image
-            source={data.productImage}
+            src={data.productImage}
             style={{ width: "80%", height: "80%", resizeMode: "contain" }}
           />
         </View>

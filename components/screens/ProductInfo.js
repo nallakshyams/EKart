@@ -9,14 +9,16 @@ import {
   ToastAndroid,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { COLOURS, Items } from "../data/data";
+import { COLOURS } from "../data/data";
 import { StatusBar } from "expo-status-bar";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useProductContext } from "../data/products";
 //import { Toast } from "react-native-toast-message/lib/src/Toast";
 
 const ProductInfo = ({ route, navigation }) => {
+  const { productList } = useProductContext();
   const screenWidth = Dimensions.get("screen").width;
   const address = "Gachibowli Street 55,\n1/71-3, Hyderabad";
   const { productID } = route.params;
@@ -28,8 +30,8 @@ const ProductInfo = ({ route, navigation }) => {
     return unsubscribe;
   }, [navigation]);
   const getData = async () => {
-    for (let index = 0; index < Items.length; index++) {
-      const element = Items[index];
+    for (let index = 0; index < productList.length; index++) {
+      const element = productList[index];
       if (element.id === productID) {
         await setProduct(element);
         return;
@@ -48,7 +50,7 @@ const ProductInfo = ({ route, navigation }) => {
         }}
       >
         <Image
-          source={item}
+          src={item}
           style={{
             width: "100%",
             height: "100%",
