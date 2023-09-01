@@ -18,9 +18,6 @@ export const ProductProvider = ({ children }) => {
       })
       .catch((error) => {
         alert("Error fetching product data:", error);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, []);
 
