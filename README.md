@@ -1,5 +1,5 @@
 # EKart
- This is sample e-commerce application developed in react native where we have used core components like View, ScrollView, Toast, FlatList etc. and libraries like AsyncStorage, navigation, firebase etc.
+This is a sample e-commerce application developed in React Native. It utilizes core components such as View, ScrollView, Toast, FlatList, and libraries like AsyncStorage, navigation, and Expo Firebase authentication. Additionally, please be aware that we offer two project versions: one for Expo at [https://github.com/nallakshyams/Ekart] and another for **Bare React Native**[https://github.com/nallakshyams/EkartApp] with added features like React Native Firebase integration for push notifications, analytics, and persistent authentication state. I will exclusively focus on updating the **Bare React Native** version moving forward.
 
 ### Steps to run:
 
